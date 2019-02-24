@@ -69,9 +69,13 @@ public class StreamBuffer<T> extends Spliterators.AbstractSpliterator<List<T>> {
             preBuffer.drainTo(elements);
         }
         boolean hasElements;
-        do {
-            hasElements = source.tryAdvance(elements::add);
-        } while (hasElements && elements.size() < preferredBufferLength);
+        if (elements.size() < preferredBufferLength) { // if minSize == preferred length
+            do {
+                hasElements = source.tryAdvance(elements::add);
+            } while (hasElements && elements.size() < preferredBufferLength);
+        } else {
+            hasElements = true;
+        }
         if (preBuffer != null) {
             //check to see if there are any additional elements present
             //that may result in too small a list being formed.
