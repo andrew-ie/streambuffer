@@ -1,4 +1,4 @@
-package io.github.andrew_ie.buffer;
+package dev.acraig.util.streambuffer;
 
 import java.util.ArrayList;
 import java.util.Comparator;

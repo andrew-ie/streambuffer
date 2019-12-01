@@ -1,6 +1,6 @@
-package io.github.andrew_ie.buffer.test;
+package dev.acraig.util.streambuffer.test;
 
-import io.github.andrew_ie.buffer.StreamBuffer;
+import dev.acraig.util.streambuffer.StreamBuffer;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ public class StreamBufferTest {
     public void testEmpty() {
         Stream<String> stream = Stream.empty();
         Stream<List<String>> listStream = StreamBuffer.buffer(stream, 1,5);
-        Assert.assertTrue(listStream.collect(Collectors.toList()).isEmpty());
+        Assert.assertEquals(0, listStream.count());
     }
 
     /**
