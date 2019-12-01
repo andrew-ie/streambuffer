@@ -3,7 +3,7 @@ Utility to allow for buffering Java Streams
 
 This is a simple library that allows you to take a stream of incoming objects, and group them into Lists, to allow them to be processed in batches.
 
-The public API is one method (in the class `dev.acrail.util.StreamBuffer`):
+The public API is one method (in the class `dev.acraig.util.StreamBuffer`):
 
     public static <V> Stream<List<V>> buffer(Stream<V> input, int minSize, int bufferLength);
     
